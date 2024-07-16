@@ -1,0 +1,41 @@
+Testcase 1:
+100001b7
+00000533
+0001b483
+0481b483
+40950533
+
+Expected Output:
+lui x3, 0x10000
+add x10, x0, x0
+ld x9, 0(x3)
+ld x9, 72(x3)
+sub x10, x10, x9
+
+Testcase 2:
+00208c63
+00a17093
+00a14083
+00a38267
+00208463
+00419463
+00a12093
+003120b3
+00a10083
+00419c63
+00000033
+00000033
+
+Expected Output:
+beq x1, x2, L1
+andi x1, x2, 10
+lbu x1, 10(x2)
+jalr x4, x7, 10
+beq x1, x2, L1
+bne x3, x4, L2
+L1: slti x1, x2, 10
+L2: slt x1, x2, x3
+lb x1, 10(x2)
+bne x3, x4, 24   // no label here as the offset + PC exceeds final PC
+add x0, x0, x0
+add x0, x0, x0

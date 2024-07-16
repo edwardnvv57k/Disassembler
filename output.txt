@@ -1,0 +1,12 @@
+beq x1, x2, L1
+andi x1, x2, 10
+lbu x1, 10(x2)
+jalr x4, x7, 10
+beq x1, x2, L1
+bne x3, x4, L2
+L1: slti x1, x2, 10
+L2: slt x1, x2, x3
+lb x1, 10(x2)
+bne x3, x4, 24
+add x0, x0, x0
+add x0, x0, x0
